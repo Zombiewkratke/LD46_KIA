@@ -39,6 +39,10 @@ public class Shooting : MonoBehaviour
         timeBetwenShots = .5f;
         if(Hit.collider != null)
         {
+            if (Hit.collider.gameObject.CompareTag("Enemy"))
+            {
+                Hit.collider.gameObject.GetComponent<Enemy>().health -= 10;
+            }
             print(Hit.collider.gameObject);
             GameObject expl = Instantiate(HitEffect, Hit.point, Quaternion.identity);
             Destroy(expl.gameObject, 2);

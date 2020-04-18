@@ -17,7 +17,7 @@ public class RoomGenerator : MonoBehaviour
     {
        for(int i = roomsNumber;i > 0;i--)
         {
-            Instantiate(DungeonList[0].Room, nextRoomPlace, Quaternion.identity);
+            Instantiate(DungeonList[Random.Range(0,DungeonList.Count)].Room, nextRoomPlace, Quaternion.identity);
             nextRoomPlace.x += 18.75f;
             /*
             int rng = Random.Range(0,100);

@@ -10,9 +10,12 @@ public class Player : MonoBehaviour
     private Rigidbody2D rigidBD;
     public Collider2D Collider;
     public float moveSpeed = 5;
+    public float maxHealth = 100;
+    public float Health;
 
     void Start()
     {
+        Health = maxHealth;
         rigidBD = this.GetComponent<Rigidbody2D>();
     }
 
@@ -27,6 +30,7 @@ public class Player : MonoBehaviour
         axisX = Input.GetAxis("Horizontal");
         axisZ = Input.GetAxis("Vertical");
         rigidBD.velocity = new Vector2(axisX,rigidBD.velocity.y)* moveSpeed;
+        
         //fix scale rotation
         /*
         if(axisX > 0)
@@ -39,4 +43,5 @@ public class Player : MonoBehaviour
         }
         */
     }
+    
 }
